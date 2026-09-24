@@ -27,11 +27,17 @@ describe("KisanSetu Direct pilot experience", () => {
     ]) {
       expect(homeSource).toContain(marker);
     }
+    expect(homeSource).toContain("const createListing = () =>");
+    expect(homeSource).toContain("const createLot = () =>");
+    expect(homeSource).toContain("const submitDispute = () =>");
+    expect(homeSource).toContain("const advanceOrder = (orderId: string)");
   });
 
   it("includes responsive and reduced-motion safeguards", () => {
     expect(styleSource).toContain("@media (max-width: 760px)");
     expect(styleSource).toContain("@media (prefers-reduced-motion: reduce)");
     expect(styleSource).toContain("focus-visible");
+    expect(homeSource).toContain('localStorage.setItem("kisansetu_orders"');
+    expect(homeSource).toContain('aria-label="Notifications"');
   });
 });
